@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lisalix
 
-## Getting Started
+Site vitrine — Next.js (export statique) + Tailwind CSS, avec un formulaire de contact envoyé
+par email via [Resend](https://resend.com), le tout hébergé gratuitement sur Cloudflare Pages.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) en mode [export statique](https://nextjs.org/docs/app/guides/static-exports) (`output: "export"`) : pages 100% statiques, rapides, bonnes pour le SEO.
+- **Tailwind CSS 4** pour le style.
+- **Cloudflare Pages Functions** (`functions/api/contact.ts`) pour la route serveur qui envoie l'email de contact — c'est la seule partie "dynamique" du site.
+- **Resend** pour l'envoi d'email (API HTTP, pas de SMTP nécessaire).
+
+## Développement local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvre [http://localhost:3000](http://localhost:3000). Le formulaire de contact ne fonctionnera
+pas avec `next dev` seul (la route `/api/contact` est une Cloudflare Pages Function, pas une
+route Next.js). Pour tester le site complet, y compris le formulaire :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .dev.vars.example .dev.vars
+# éditer .dev.vars avec une vraie clé Resend
+npm run preview
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`npm run preview` build le site puis le sert avec `wrangler pages dev`, exactement comme en
+production sur Cloudflare.
 
-## Learn More
+## Déploiement sur Cloudflare Pages (gratuit)
 
-To learn more about Next.js, take a look at the following resources:
+1. Pousser ce repo sur GitHub/GitLab.
+2. Sur [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → **Créer** → **Pages** → **Connecter un dépôt Git**.
+3. Configuration du build :
+   - Framework preset : `Next.js (Static HTML Export)`
+   - Build command : `npm run build`
+   - Output directory : `out`
+4. Dans **Settings → Environment variables**, ajouter (en tant que secrets pour la prod) :
+   - `RESEND_API_KEY`
+   - `CONTACT_TO_EMAIL` — l'adresse qui doit recevoir les demandes de devis
+   - `CONTACT_FROM_EMAIL` — l'adresse expéditrice (doit être sur un domaine vérifié dans Resend ;
+     pour tester rapidement, `onboarding@resend.dev` fonctionne mais n'envoie qu'à l'adresse du
+     compte Resend)
+5. Déployer. Le dossier `functions/` est détecté automatiquement par Cloudflare Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Domaine personnalisé
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Une fois déployé, ajouter le nom de domaine dans **Custom domains** sur le projet Pages. Cloudflare
+gère le DNS/SSL automatiquement si le domaine est déjà sur Cloudflare.
 
-## Deploy on Vercel
+## Personnalisation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Coordonnées et infos de l'entreprise : [src/lib/site.ts](src/lib/site.ts)
+- Contenu des pages : [src/app/page.tsx](src/app/page.tsx), [src/app/services/page.tsx](src/app/services/page.tsx), [src/app/contact/page.tsx](src/app/contact/page.tsx)
+- Mentions légales à compléter avant mise en ligne : [src/app/mentions-legales/page.tsx](src/app/mentions-legales/page.tsx)
+- Logique d'envoi d'email : [functions/api/contact.ts](functions/api/contact.ts)
