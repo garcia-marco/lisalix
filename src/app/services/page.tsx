@@ -1,3 +1,11 @@
+// Page désactivée le temps de la construction du site : renvoie une 404.
+// Pour la réactiver, supprimer ces lignes et décommenter le code ci-dessous.
+import { notFound } from 'next/navigation'
+
+export default function Page() {
+  notFound()
+}
+
 // import type { Metadata } from "next";
 // import { Container, Section, Eyebrow, H1, H2, Subtitle, Card, Button, Icon } from "@/components/ui";
 
