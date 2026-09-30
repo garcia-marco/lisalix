@@ -35,10 +35,10 @@ export default function Header() {
               className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt="Lisalix"
-                width={132}
-                height={32}
+                width={165}
+                height={40}
                 priority
               />
             </Link>
