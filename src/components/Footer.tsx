@@ -41,7 +41,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-brand/60">
+          <p className="mt-6 text-xs text-neutral-700">
             Copyright © {year} {siteConfig.name}
           </p>
         </div>
