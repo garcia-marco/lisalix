@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "preview": "next build && wrangler pages dev out",
+    "preview": "next build && wrangler dev",
+    "deploy": "next build && wrangler deploy",
     "lint": "eslint"
   },
   "dependencies": {
