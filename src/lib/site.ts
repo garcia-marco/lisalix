@@ -7,5 +7,5 @@ export const siteConfig = {
   url: "https://lisalix.fr",
   phone: "+33619390685",
   phoneDisplay: "06 19 39 06 85",
-  email: "lisalix09@gmail.com",
+  email: "contact@lisalix.fr",
 };
