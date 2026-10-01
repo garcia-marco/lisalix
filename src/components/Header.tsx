@@ -70,6 +70,16 @@ export default function Header() {
               />
               {siteConfig.phoneDisplay}
             </Link>
+            <Link
+              href={`mailto:${siteConfig.email}`}
+              className={ctaLinkClass}
+            >
+              <Icon
+                name="email"
+                size={18}
+              />
+              {siteConfig.email}
+            </Link>
             {/* <Link
               href="/contact"
               className={ctaLinkClass}
@@ -112,9 +122,10 @@ export default function Header() {
       </Container>
 
       {open && (
-        <Container className="px-2.5 mt-2 sm:hidden">
-          <nav className="flex flex-col gap-1 rounded-[20px] border-2 border-[#d9e3ec] bg-white p-3 shadow-[0_0_20px_-15px_#1a5789]">
-            {/* {navLinks.map((link) => (
+        <div className="absolute inset-x-0 top-full mt-2 sm:hidden">
+          <Container className="px-2.5">
+            <nav className="flex flex-col gap-1 rounded-[20px] border-2 border-[#d9e3ec] bg-white p-3 shadow-[0_0_20px_-15px_#1a5789]">
+              {/* {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -128,18 +139,29 @@ export default function Header() {
                 {link.label}
               </Link>
             ))} */}
-            <Link
-              href={`tel:${siteConfig.phone}`}
-              onClick={() => setOpen(false)}
-              className={cn(pillLinkClass, 'justify-center')}
-            >
-              <Icon
-                name="call"
-                size={18}
-              />
-              {siteConfig.phoneDisplay}
-            </Link>
-            {/* <Link
+              <Link
+                href={`tel:${siteConfig.phone}`}
+                onClick={() => setOpen(false)}
+                className={cn(pillLinkClass, 'justify-center')}
+              >
+                <Icon
+                  name="call"
+                  size={18}
+                />
+                {siteConfig.phoneDisplay}
+              </Link>
+              <Link
+                href={`mailto:${siteConfig.email}`}
+                onClick={() => setOpen(false)}
+                className={cn(ctaLinkClass, 'justify-center')}
+              >
+                <Icon
+                  name="email"
+                  size={18}
+                />
+                {siteConfig.email}
+              </Link>
+              {/* <Link
               href="/contact"
               onClick={() => setOpen(false)}
               className={cn(ctaLinkClass, 'justify-center')}
@@ -150,8 +172,9 @@ export default function Header() {
               />
               Contact & devis
             </Link> */}
-          </nav>
-        </Container>
+            </nav>
+          </Container>
+        </div>
       )}
     </header>
   )

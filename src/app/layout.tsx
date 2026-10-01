@@ -52,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             the Pages Router; the root layout is the correct App Router place for this. */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@800&family=Poppins:wght@300;400;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,800;1,400;1,800&family=Poppins:wght@300;400;600&display=swap"
         />
         {/* Material Symbols, pinned to one axis point (outlined, regular weight) instead
             of the full variable range — a much smaller file since we only ever render
