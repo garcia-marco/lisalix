@@ -1,4 +1,4 @@
-export { Container } from "./Container";
+export { Container, contentWidth } from "./Container";
 export { Icon } from "./Icon";
 export { Section } from "./Section";
 export { Eyebrow } from "./Eyebrow";

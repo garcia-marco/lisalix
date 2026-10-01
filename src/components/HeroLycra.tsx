@@ -11,7 +11,7 @@ import { cn } from '@/lib/cn'
  */
 export function HeroLycra() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[460px]">
+    <div className="relative mx-auto aspect-square md:mr-0 w-full max-w-[460px]">
       {/* Island + contour rings, same drawing as the backdrop's corners. The
           island (scale 3.4 ≈ 64% of the box) sits under the lycra; the rings
           around it turn very slowly. */}

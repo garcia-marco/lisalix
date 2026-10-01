@@ -27,7 +27,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-4 z-50">
-      <Container className="px-2.5">
+      <Container
+        fluid
+        className="px-5"
+      >
         <div className={barClass}>
           <div className="flex items-center gap-6">
             <Link
@@ -123,7 +126,10 @@ export default function Header() {
 
       {open && (
         <div className="absolute inset-x-0 top-full mt-2 sm:hidden">
-          <Container className="px-2.5">
+          <Container
+            fluid
+            className="px-5"
+          >
             <nav className="flex flex-col gap-1 rounded-[20px] border-2 border-[#d9e3ec] bg-white p-3 shadow-[0_0_20px_-15px_#1a5789]">
               {/* {navLinks.map((link) => (
               <Link

@@ -4,6 +4,8 @@ import { Eyebrow } from "./Eyebrow";
 import { H1 } from "./Heading";
 import { Subtitle } from "./Subtitle";
 import { HeroBackdrop } from "./HeroBackdrop";
+import { contentWidth } from "./Container";
+import { cn } from "@/lib/cn";
 
 export function Hero({
   eyebrow,
@@ -34,12 +36,17 @@ export function Hero({
     <Section variant="light" className="relative -mt-21 overflow-hidden">
       <HeroBackdrop />
       {media ? (
-        <div className="relative grid items-center gap-10 pt-20 md:grid-cols-[1.15fr_1fr] md:gap-6">
+<div
+          className={cn(
+            contentWidth,
+            "relative grid items-center gap-10 pt-20 md:grid-cols-[1.15fr_1fr] md:gap-6"
+          )}
+        >
           {text}
           {media}
         </div>
       ) : (
-        <div className="relative pt-20">{text}</div>
+        <div className={cn(contentWidth, "relative pt-20")}>{text}</div>
       )}
     </Section>
   );

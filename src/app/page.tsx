@@ -16,7 +16,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <Container className="px-6 pt-4 sm:px-8">
+    <Container
+      fluid
+      className="px-8.5 pt-4 sm:px-10.5"
+    >
       <Hero
         eyebrow="LYCRAS & TEXTILE SURF"
         eyebrowIcon="surfing"

@@ -8,7 +8,10 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto pb-1.5">
-      <Container>
+      <Container
+        fluid
+        className="px-2.5"
+      >
         <div className="relative overflow-hidden rounded-[27px] bg-brand-light px-6 py-10 text-center text-brand">
           <TextureBackdrop />
 
