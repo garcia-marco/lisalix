@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 const baseClass =
-  "flex items-center gap-2 rounded-[10px] px-[30px] py-2.5 text-sm font-medium transition-colors duration-200 disabled:opacity-60";
+  "flex items-center gap-2 rounded-full px-[30px] py-2.5 text-sm font-medium transition-colors duration-200 disabled:opacity-60";
 
 const variantClasses = {
   solid: "border border-brand bg-brand text-white hover:bg-brand-dark",

@@ -76,7 +76,7 @@ export function HeroLycra() {
       />
       <Patch
         label="Votre logo, vos couleurs"
-        className="right-0 bottom-[40%] motion-safe:[animation-delay:1.25s]"
+        className="right-0 bottom-[45%] motion-safe:[animation-delay:1.25s]"
       />
       <HangTag
         kicker="Toute la gamme"

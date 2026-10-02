@@ -9,12 +9,12 @@ import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/site'
 
 const barClass =
-  'flex items-center justify-between rounded-[20px] border-2 border-[#d9e3ec] bg-white px-6 py-3.5 shadow-[0_0_20px_-15px_#1a5789]'
+  'flex items-center justify-between rounded-full border-2 border-[#d9e3ec] bg-white px-6 py-3.5 shadow-[0_0_20px_-15px_#1a5789]'
 const pillLinkClass =
-  'inline-flex items-center gap-1.5 rounded-[10px] px-4 py-2.5 text-[15px] font-medium text-brand transition-colors duration-200 hover:bg-brand-light hover:shadow-[0_0_20px_-17px_#1a5789]'
+  'inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[15px] font-medium text-brand transition-colors duration-200 hover:bg-brand-light hover:shadow-[0_0_20px_-17px_#1a5789]'
 const activePillClass = 'bg-brand-light shadow-[0_0_20px_-17px_#1a5789]'
 const ctaLinkClass =
-  'inline-flex items-center gap-1.5 rounded-[10px] bg-brand px-4 py-2.5 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-brand-dark'
+  'inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2.5 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-brand-dark'
 
 const navLinks = [
   { href: '/services', label: 'Nos prestations' },
@@ -130,7 +130,7 @@ export default function Header() {
             fluid
             className="px-5"
           >
-            <nav className="flex flex-col gap-1 rounded-[20px] border-2 border-[#d9e3ec] bg-white p-3 shadow-[0_0_20px_-15px_#1a5789]">
+            <nav className="flex flex-col gap-1 rounded-[42px] border-2 border-[#d9e3ec] bg-white p-3 shadow-[0_0_20px_-15px_#1a5789]">
               {/* {navLinks.map((link) => (
               <Link
                 key={link.href}

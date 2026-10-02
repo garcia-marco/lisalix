@@ -7,9 +7,9 @@ import { cn } from "@/lib/cn";
 // text lands exactly where plain, uncolored text sits.
 const variantClasses = {
   /** Light blue rounded card, used for hero blocks and highlighted content. */
-  light: "-mx-6 sm:-mx-8 rounded-[27px] bg-brand-light px-6 sm:px-8",
+  light: "-mx-6 sm:-mx-8 rounded-[42px] bg-brand-light px-6 sm:px-8",
   /** Solid brand-blue rounded card, used for high-contrast CTA blocks. */
-  brand: "-mx-6 sm:-mx-8 rounded-[27px] bg-brand px-6 sm:px-8",
+  brand: "-mx-6 sm:-mx-8 rounded-[42px] bg-brand px-6 sm:px-8",
   /** No background/border, just consistent vertical rhythm. */
   plain: "",
 };
