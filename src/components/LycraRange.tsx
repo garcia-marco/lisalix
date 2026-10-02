@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Eyebrow, H2, Subtitle, contentWidth } from '@/components/ui'
 import { Contours } from '@/components/ui/Contours'
 import { TextureBackdrop, contourSteps } from '@/components/ui/TextureBackdrop'
@@ -7,6 +6,7 @@ import { cn } from '@/lib/cn'
 type Lycra = {
   title: string
   description: string
+  /** Path without extension: `<image>-600.webp` and `<image>.webp` (800px) must exist. */
   image: string
   /** Position of the contour lines in the card, different for each one. */
   contoursClassName: string
@@ -17,14 +17,14 @@ const lycras: Lycra[] = [
     title: 'Lycra manche courte',
     description:
       'Le classique des écoles de surf : les épaules libres, idéal pour les cours et les journées d’été.',
-    image: '/images/lycras/manche-courte-col-rond.webp',
+    image: '/images/lycras/manche-courte-col-rond',
     contoursClassName: '-top-40 -right-36 rotate-12',
   },
   {
     title: 'Lycra manche longue',
     description:
       'Les bras couverts contre le soleil et les frottements de la planche, pour les longues sessions.',
-    image: '/images/lycras/manche-longue-col-montant.webp',
+    image: '/images/lycras/manche-longue-col-montant',
     contoursClassName: '-bottom-44 -left-40 rotate-[200deg]',
   },
   {
@@ -32,7 +32,7 @@ const lycras: Lycra[] = [
     description:
       'Léger et sans entrave, pour l’entraînement, les compétitions et les journées les plus chaudes.',
     // TODO: replace with the sleeveless photo once we have it.
-    image: '/images/lycras/manche-courte-col-rond.webp',
+    image: '/images/lycras/manche-courte-col-rond',
     contoursClassName: '-top-44 -left-32 rotate-[80deg]',
   },
 ]
@@ -84,12 +84,18 @@ export function LycraRange() {
 
               {/* Photo: free above the card, clipped to it on the other sides */}
               <div className="absolute inset-0 [clip-path:inset(-200px_0_0_0_round_0_0_27px_27px)]">
-                <Image
-                  src={lycra.image}
+                {/* Plain <img>: with `images.unoptimized` (static export) next/image emits no
+                    srcset, so the pre-resized WebP variants are listed by hand. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${lycra.image}.webp`}
+                  srcSet={`${lycra.image}-600.webp 600w, ${lycra.image}.webp 800w`}
+                  sizes="(min-width: 768px) 340px, min(88vw, 340px)"
                   alt={lycra.title}
                   width={800}
                   height={960}
-                  sizes="(min-width: 768px) 380px, 90vw"
+                  loading="lazy"
+                  decoding="async"
                   className="absolute -bottom-[20%] left-1/2 w-[88%] max-w-none -translate-x-1/2 drop-shadow-[0_20px_25px_rgba(15,50,80,0.25)] transition-transform duration-500 group-hover:-translate-y-2"
                 />
               </div>

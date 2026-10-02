@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Contours, islandPath } from '@/components/ui/Contours'
 import { cn } from '@/lib/cn'
 
@@ -56,13 +55,18 @@ export function HeroLycra() {
 
       {/* Lycra: entrance on the wrapper, float on the image */}
       <div className="absolute inset-x-[4%] -top-[4%] bottom-[5%] rotate-6 motion-safe:animate-hero-in motion-safe:[animation-delay:150ms]">
-        <Image
-          src="/images/lycra-accueil.png"
+        {/* Plain <img>: with `images.unoptimized` (static export) next/image emits no
+            srcset, so the pre-resized WebP variants are listed by hand. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/lycra-accueil-800.webp"
+          srcSet="/images/lycra-accueil-480.webp 480w, /images/lycra-accueil-800.webp 800w, /images/lycra-accueil-1145.webp 1145w"
+          sizes="(min-width: 768px) 440px, 90vw"
           alt="Lycra de surf personnalisé Lisalix, bleu et blanc"
           width={1145}
           height={1374}
-          priority
-          sizes="(min-width: 768px) 440px, 90vw"
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-contain drop-shadow-[0_20px_25px_rgba(15,50,80,0.35)] motion-safe:animate-hero-float motion-safe:[animation-delay:1.3s]"
         />
       </div>

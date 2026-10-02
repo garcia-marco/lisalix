@@ -17,11 +17,11 @@ type Client = {
 const clients: Client[] = [
   {
     name: 'Novespace',
-    logo: { src: '/images/clients/novespace.png', width: 2363, height: 768 },
+    logo: { src: '/images/clients/novespace.webp', width: 288, height: 94 },
   },
   {
     name: 'Fédération Française de Vol Libre',
-    logo: { src: '/images/clients/ffvl.png', width: 170, height: 170 },
+    logo: { src: '/images/clients/ffvl.webp', width: 128, height: 128 },
   },
   {
     name: 'KEDGE Business School Bordeaux',
@@ -34,7 +34,7 @@ const clients: Client[] = [
   },
   {
     name: 'Surf Palace',
-    logo: { src: '/images/clients/surf-palace.jpg', width: 580, height: 500 },
+    logo: { src: '/images/clients/surf-palace.webp', width: 148, height: 128 },
   },
   {
     name: 'Cdiscount',
@@ -42,7 +42,7 @@ const clients: Client[] = [
   },
   {
     name: 'Terra Aquatica',
-    logo: { src: '/images/clients/terra-aquatica.webp', width: 966, height: 400 },
+    logo: { src: '/images/clients/terra-aquatica.webp', width: 288, height: 119 },
   },
 ]
 
@@ -55,7 +55,7 @@ const clients: Client[] = [
 export function ClientLogos() {
   return (
     <section className={cn(contentWidth, 'pt-4 pb-12 sm:pb-14')}>
-      <p className="mb-4 text-center text-sm text-brand/70">
+      <p className="mb-4 text-center text-sm text-brand/85">
         Ils portent déjà nos{' '}
         <em className="font-heading text-lg text-brand">couleurs</em>
       </p>

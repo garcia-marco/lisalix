@@ -9,7 +9,7 @@ import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/site'
 
 const barClass =
-  'flex items-center justify-between rounded-full border-2 border-[#d9e3ec] bg-white px-6 py-3.5 shadow-[0_0_20px_-15px_#1a5789]'
+  'flex items-center justify-between rounded-full border-2 border-[#d9e3ec] bg-white p-3.5 shadow-[0_0_20px_-15px_#1a5789]'
 const pillLinkClass =
   'inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[15px] font-medium text-brand transition-colors duration-200 hover:bg-brand-light hover:shadow-[0_0_20px_-17px_#1a5789]'
 const activePillClass = 'bg-brand-light shadow-[0_0_20px_-17px_#1a5789]'
@@ -35,7 +35,9 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <Link
               href="/"
-              className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
+              // Hover pill drawn on ::after so its vertical padding doesn't add to the
+              // header height. `isolate` keeps the -z-10 pill above the white bar.
+              className="relative isolate shrink-0 px-4 after:absolute after:inset-x-0 after:-inset-y-0.5 after:-z-10 after:rounded-full after:transition-colors after:duration-200 hover:after:bg-brand-light hover:after:shadow-[0_0_20px_-17px_#1a5789]"
             >
               <Image
                 src="/images/logo.svg"
