@@ -3,6 +3,7 @@ import { Container, Button, Icon, Hero } from '@/components/ui'
 import { HeroLycra } from '@/components/HeroLycra'
 import { ClientLogos } from '@/components/ClientLogos'
 import { LycraRange } from '@/components/LycraRange'
+import { Realisations } from '@/components/Realisations'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -60,6 +61,8 @@ export default function HomePage() {
       <ClientLogos />
 
       <LycraRange />
+
+      <Realisations />
     </Container>
   )
 }

@@ -1,4 +1,5 @@
 import { Contours, islandPath } from '@/components/ui/Contours'
+import { HangTag } from '@/components/ui/HangTag'
 import { cn } from '@/lib/cn'
 
 /**
@@ -75,8 +76,8 @@ export function HeroLycra() {
       <HangTag
         kicker="Sur mesure"
         label="Coupes & formes"
-        className="top-[18%] left-0 motion-safe:[animation-delay:1.1s]"
-        swayClassName="motion-safe:[animation-delay:-1s]"
+        className="top-[18%] left-0 motion-safe:animate-hero-pop motion-safe:[animation-delay:1.1s]"
+        swayClassName="motion-safe:animate-tag-sway motion-safe:[animation-delay:-1s]"
       />
       <Patch
         label="Votre logo, vos couleurs"
@@ -85,63 +86,9 @@ export function HeroLycra() {
       <HangTag
         kicker="Toute la gamme"
         label="Lycras, sweats, polos…"
-        className="bottom-[18%] left-[2%] motion-safe:[animation-delay:1.4s]"
-        swayClassName="motion-safe:[animation-delay:-3s]"
+        className="bottom-[18%] left-[2%] motion-safe:animate-hero-pop motion-safe:[animation-delay:1.4s]"
+        swayClassName="motion-safe:animate-tag-sway motion-safe:[animation-delay:-3s]"
       />
-    </div>
-  )
-}
-
-/**
- * Clothing hang tag: notched card with an eyelet and a loose string, swaying
- * gently from the eyelet. Pop-in runs on the outer element and the sway on the
- * inner one, so the two `scale`/`rotate` animations don't override each other.
- */
-function HangTag({
-  kicker,
-  label,
-  className,
-  swayClassName,
-}: {
-  kicker: string
-  label: string
-  className: string
-  swayClassName: string
-}) {
-  return (
-    <div className={cn('absolute motion-safe:animate-hero-pop', className)}>
-      <div
-        className={cn(
-          'relative origin-[12px_50%] -rotate-3 drop-shadow-[0_8px_12px_rgba(15,50,80,0.25)] motion-safe:animate-tag-sway',
-          swayClassName
-        )}
-      >
-        <svg
-          viewBox="0 0 40 48"
-          className="absolute bottom-1/2 left-[12px] h-12 w-10 overflow-visible text-brand-dark/60"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 48 C -6 34 -18 24 -12 12 C -8 4 2 2 6 -4"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-          />
-        </svg>
-        <p className="bg-white py-1.5 pr-4 pl-8 whitespace-nowrap text-brand [clip-path:polygon(18px_0,100%_0,100%_100%,18px_100%,0_50%)] sm:py-2">
-          <span className="block text-[10px] font-semibold tracking-[0.2em] text-brand/60 uppercase">
-            {kicker}
-          </span>
-          <span className="block font-heading text-base italic sm:text-lg">
-            {label}
-          </span>
-        </p>
-        <span
-          className="absolute top-1/2 left-[8px] size-2.5 -translate-y-1/2 rounded-full bg-brand-light ring-2 ring-brand/30"
-          aria-hidden="true"
-        />
-      </div>
     </div>
   )
 }
