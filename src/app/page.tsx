@@ -4,6 +4,7 @@ import { HeroLycra } from '@/components/HeroLycra'
 import { ClientLogos } from '@/components/ClientLogos'
 import { LycraRange } from '@/components/LycraRange'
 import { Realisations } from '@/components/Realisations'
+import { ProductRange } from '@/components/ProductRange'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -63,6 +64,8 @@ export default function HomePage() {
       <LycraRange />
 
       <Realisations />
+
+      <ProductRange />
     </Container>
   )
 }
