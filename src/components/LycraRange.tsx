@@ -17,21 +17,21 @@ const lycras: Lycra[] = [
     title: 'Lycra manche longue',
     description:
       'Les bras couverts contre le soleil et les frottements de la planche, pour les longues sessions.',
-    image: '/images/lycras/manche-longue-col-rond',
+    image: '/images/lycras/manche-longue-breizh',
     contoursClassName: '-bottom-44 -left-40 rotate-[200deg]',
   },
   {
     title: 'Lycra manche courte',
     description:
       'Le classique des écoles de surf : les épaules libres, idéal pour les cours et les journées d’été.',
-    image: '/images/lycras/manche-courte-col-rond',
+    image: '/images/lycras/manche-courte-tropical',
     contoursClassName: '-top-40 -right-36 rotate-12',
   },
   {
     title: 'Lycra sans manche',
     description:
       'Léger et sans entrave, pour l’entraînement, les compétitions et les journées les plus chaudes.',
-    image: '/images/lycras/sans-manche-col-rond',
+    image: '/images/lycras/sans-manche-rayures',
     contoursClassName: '-top-44 -left-32 rotate-[80deg]',
   },
 ]

@@ -60,10 +60,10 @@ export function HeroLycra() {
             srcset, so the pre-resized WebP variants are listed by hand. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/lycra-accueil-800.webp"
-          srcSet="/images/lycra-accueil-480.webp 480w, /images/lycra-accueil-800.webp 800w, /images/lycra-accueil-1145.webp 1145w"
+          src="/images/lycra-accueil-rouge-bleu-800.webp"
+          srcSet="/images/lycra-accueil-rouge-bleu-480.webp 480w, /images/lycra-accueil-rouge-bleu-800.webp 800w, /images/lycra-accueil-rouge-bleu-1145.webp 1145w"
           sizes="(min-width: 768px) 440px, 90vw"
-          alt="Lycra de surf personnalisé Lisalix, bleu et blanc"
+          alt="Lycra manches courtes personnalisé Lisalix, rouge et bleu à rayures"
           width={1145}
           height={1374}
           fetchPriority="high"
